@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Locations</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="normalize.css">
+	<link rel="stylesheet" type="text/css" href="Locations-style.css">
+	<link rel="stylesheet" href="animate.css">
+	<link rel="stylesheet" href="owl.carousel.css">
+	<link rel="stylesheet" href="owl.theme.default.css">
+	<link rel="stylesheet" href="jquery-ui.theme.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiU2-A03cLeCvF0Jw1QB8EDFlB3GF4haA&callback=initMap">
+    </script>
+    <script src="https://use.fontawesome.com/1bd0892c8e.js"></script>
+    
+ 
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+	<nav class="navbar navbar-default" role="navigation">
+	  <div class="container-fluid" id="divNav">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="http://themestarz.net/html/locations/index-map-version-2.html#nav-homepages" target="_blank"><img src="http://themestarz.net/html/locations/assets/img/logo.png"></a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav navbar-right">
+	      	<li class="dropdown">
+	          <a href="#" class="dropdown-toggle aNav" data-toggle="dropdown" id="aHome"><span id="spanHome">HOME</span><b class="caret"></b></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="#">Action</a></li>
+	            <li><a href="#">Another action</a></li>
+	            <li><a href="#">Something else here</a></li>
+	            <li class="divider"></li>
+	            <li><a href="#">Separated link</a></li>
+	            <li class="divider"></li>
+	            <li><a href="#">One more separated link</a></li>
+	          </ul>
+	        </li>
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle aNav" data-toggle="dropdown">LISTING <b class="caret"></b></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="#">Action</a></li>
+	            <li><a href="#">Another action</a></li>
+	            <li><a href="#">Something else here</a></li>
+	            <li class="divider"></li>
+	            <li><a href="#">Separated link</a></li>
+	          </ul>
+	        </li>
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle aNav" data-toggle="dropdown">PAGES <b class="caret"></b></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="#">Action</a></li>
+	            <li><a href="#">Another action</a></li>
+	            <li><a href="#">Something else here</a></li>
+	            <li class="divider"></li>
+	            <li><a href="#">Separated link</a></li>
+	          </ul>
+	        </li>
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle aNav" data-toggle="dropdown">LOCATIONS <b class="caret"></b></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="#">Action</a></li>
+	            <li><a href="#">Another action</a></li>
+	            <li><a href="#">Something else here</a></li>
+	            <li class="divider"></li>
+	            <li><a href="#">Separated link</a></li>
+	          </ul>
+	        </li>
+	        <li><a href="#" class="aNav">BLOG</a></li>
+	        <li><a href="#" class="aNav">CONTACT</a></li>
+	        <li><a href="#" class="aNav">SIGN IN</a></li>
+	        <li><a href="#" class="aNav" id="aRegister">REGISTER</a></li>
+	        <li><a href="#" class="aNav" id="aAdd"><span class="fa fa-plus"></span> ADD LISTING</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+
+	<a id="goTop"><span id="prstToTop"><span id="tacka">.</span>&#9758;</span></a>
+
+	<div id="map" style="width: 100%; height: 650px;"></div>
+
+	<div id="formaWrapper">
+	<div id="forma" class="container">
+		<div class="row">
+			<div class="col-md-3 col-sm-6 col-xs-12">
+				<input type="text" class="form-control fc1" placeholder="Enter Keyword">
+			</div>
+			<div class="col-md-3 col-sm-6 col-xs-12">
+				<select class="form-control fc1" id="sel1">
+			        <option style="color:darkblue" selected="selected">Location</option>
+			        <option>2</option>
+			        <option>3</option>
+			        <option>4</option>
+			    </select>
+			</div>
+			<div class="col-md-3 col-sm-6 col-xs-12">
+				<select class="form-control fc1" id="Cat">
+			        <option style="color:darkblue" selected="selected">Category</option>
+			        <option>2</option>
+			        <option>3</option>
+			        <option>4</option>
+			    </select>
+			</div>
+			<div class="col-md-2 col-sm-6 col-xs-12">
+				<div class="form-group"  id="Date">
+					<input type="text" class="form-control date-picker fc1" placeholder="Event Date" id="date1">
+				</div>
+			</div>
+			<div class="col-md-1 col-sm-6 col-xs-12"  id="BtnSearch">
+				<button id="btnSearch"><span class="fa fa-search"></span></button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-9 col-sm-12 col-xs-12">
+				<input type="checkbox" name="" class="check"> <span class="spanCB">Hotel</span>
+				<input type="checkbox" name="" class="check"> <span class="spanCB">Event</span>
+				<input type="checkbox" name="" class="check"> <span class="spanCB">Restaurant</span>
+				<input type="checkbox" name="" class="check"> <span class="spanCB">Trip</span>
+				<input type="checkbox" name="" class="check"> <span class="spanCB">Concert</span>
+				<input type="checkbox" name="" class="check"> <span class="spanCB">Adrenaline</span>
+				<input type="checkbox" name="" class="check"> <span class="spanCB">Wellness</span>
+			</div>
+			<div class="col-md-2 col-sm-12 col-xs-12" id="range">
+				<input id="test" type="range"/>
+			</div>
+			<div class="col-md-1 col-sm-12 col-xs-12"></div>
+		</div>
+	</div>
+	</div>
+
+	<div class="container" id="drugiDiv">
+		<div class="row divHP">
+			<h2>Recent Places</h2>
+			<p>Fusce eu mollis dui, varius convallis mauris. Nam dictum id</p>
+		</div>
+		<div class="row">
+			<div class="col-md-3 col-sm-3 col-xs-12 divWrapperGornjiDonji">
+				<div id="gornjiDiv1">
+		    		<img src="https://source.unsplash.com/xXaLfz6V9rQ/600x500" class="imgGornjiDiv">
+		    		<div class="content1">
+			    		<p id="pColTri">Average price: $8 - $30</p>
+			    		<a class="aGornjiDiv1">Restaurant</a>
+			    		<h4 id="h4ColTri">Marky's Restaurant</h4>
+			    		<p>633 Birch Street</p>
+		    		</div>
+		    	</div>
+		    	<div id="donjiDiv1">
+		    		<div class="row">
+			    		<div class="col-md-6 col-sm-6 col-xs-6" id="colTriSpanovi">
+				    		<span class="fa fa-star spanOsmiDiv21"></span>
+							<span class="fa fa-star spanOsmiDiv21"></span>
+							<span class="fa fa-star spanOsmiDiv21"></span>
+							<span class="fa fa-star spanOsmiDiv21"></span>
+							<span class="fa fa-star spanOsmiDiv12"></span>
+							<span class="span6"> (6)</span>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-6 divUl">
+							<ul id="ulDonjiDiv1">
+								<li class="liDonjiDiv1"></li>
+								<li class="liDonjiDiv1"></li>
+								<li class="liDonjiDiv1"></li>
+							</ul>
+						</div>
+					</div>
+		    	</div>
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-12 divWrapperGornjiDonji">
+				<div id="gornjiDiv1">
+		    		<img src="https://source.unsplash.com/WIJPPnoVrDs/600x400" class="imgGornjiDiv">
+		    		<div class="content1">
+			    		<p id="pColTri">Average price: $8 - $30</p>
+			    		<a class="aGornjiDiv1">Restaurant</a>
+			    		<h4 id="h4ColTri">Marky's Restaurant</h4>
+			    		<p>633 Birch Street</p>
+		    		</div>
+		    	</div>
+		    	<div id="donjiDiv1">
+		    		<div class="row">
+			    		<div class="col-md-6 col-sm-6 col-xs-6" id="colTriSpanovi">
+				    		<span class="fa fa-star spanOsmiDiv21"></span>
+							<span class="fa fa-star spanOsmiDiv21"></span>
+							<span class="fa fa-star spanOsmiDiv21"></span>
+							<span class="fa fa-star spanOsmiDiv21"></span>
+							<span class="fa fa-star spanOsmiDiv12"></span>
+							<span class="span6"> (6)</span>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-6 divUl">
+							<ul id="ulDonjiDiv1">
+								<li class="liDonjiDiv1"></li>
+								<li class="liDonjiDiv1"></li>
+								<li class="liDonjiDiv1"></li>
+							</ul>
+						</div>
+					</div>
+		    	</div>
+			</div>
+			<div class="col-md-6 col-sm-6 col-xs-12">
+				<div id="gornjiDiv1">
+		    		<img src="https://source.unsplash.com/WIJPPnoVrDs/600x400" class="imgGornjiDiv">
+		    		<div class="content1">
+			    		<p>Average price: $8 - $30</p>
+			    		<a class="aGornjiDiv1">Restaurant</a>
+			    		<h4>Marky's Restaurant</h4>
+			    		<p>633 Birch Street</p>
+		    		</div>
+		    	</div>
+		    	<div id="donjiDiv1">
+		    		<div class="row">
+			    		<div class="col-md-6 col-sm-6 col-xs-6" id="colTriSpanovi">
+				    		<span class="fa fa-star spanOsmiDiv21"></span>
+							<span class="fa fa-star spanOsmiDiv21"></span>
+							<span class="fa fa-star spanOsmiDiv21"></span>
+							<span class="fa fa-star spanOsmiDiv21"></span>
+							<span class="fa fa-star spanOsmiDiv12"></span>
+							<span class="span6"> (6)</span>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-6 divUl">
+							<ul id="ulDonjiDiv1">
+								<li class="liDonjiDiv1"></li>
+								<li class="liDonjiDiv1"></li>
+								<li class="liDonjiDiv1"></li>
+							</ul>
+						</div>
+					</div>
+		    	</div>
+			</div>
+		</div>
+		<div class="row" id="rowPlaces2">
+			<div class="col-md-4 col-sm-4 col-xs-12 divWrapperGornjiDonji">
+				<div id="gornjiDiv1">
+		    		<img src="https://source.unsplash.com/ibqNFI6nC7g/600x400" class="imgGornjiDiv">
+		    		<div class="content1">
+			    		<p>Average price: $8 - $30</p>
+			    		<a class="aGornjiDiv1">Restaurant</a>
+			    		<h4>Marky's Restaurant</h4>
+			    		<p>633 Birch Street</p>
+		    		</div>
+		    	</div>
+		    	<div id="donjiDiv1">
+		    		<div class="row">
+			    		<div class="col-md-6 col-sm-6 col-xs-6" id="colTriSpanovi">
+				    		<span class="fa fa-star spanOsmiDiv21"></span>
+							<span class="fa fa-star spanOsmiDiv21"></span>
+							<span class="fa fa-star spanOsmiDiv21"></span>
+							<span class="fa fa-star spanOsmiDiv21"></span>
+							<span class="fa fa-star spanOsmiDiv12"></span>
+							<span class="span6"> (6)</span>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-6 divUl">
+							<ul id="ulDonjiDiv1">
+								<li class="liDonjiDiv1"></li>
+								<li class="liDonjiDiv1"></li>
+								<li class="liDonjiDiv1"></li>
+							</ul>
+						</div>
+					</div>
+		    	</div>
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-12 divWrapperGornjiDonji">
+				<div id="gornjiDiv1">
+		    		<img src="https://source.unsplash.com/dKxGVeb3F2w/600x400" class="imgGornjiDiv">
+		    		<div class="content1">
+			    		<p id="pColTri">Average price: $8 - $30</p>
+			    		<a class="aGornjiDiv1">Restaurant</a>
+			    		<h4 id="h4ColTri">Marky's Restaurant</h4>
+			    		<p>633 Birch Street</p>
+		    		</div>
+		    	</div>
+		    	<div id="donjiDiv1">
+		    		<div class="row">
+			    		<div class="col-md-6 col-sm-6 col-xs-6" id="colTriSpanovi">
+				    		<span class="fa fa-star spanOsmiDiv21"></span>
+							<span class="fa fa-star spanOsmiDiv21"></span>
+							<span class="fa fa-star spanOsmiDiv21"></span>
+							<span class="fa fa-star spanOsmiDiv21"></span>
+							<span class="fa fa-star spanOsmiDiv12"></span>
+							<span class="span6"> (6)</span>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-6 divUl">
+							<ul id="ulDonjiDiv1">
+								<li class="liDonjiDiv1"></li>
+								<li class="liDonjiDiv1"></li>
+								<li class="liDonjiDiv1"></li>
+							</ul>
+						</div>
+					</div>
+		    	</div>
+			</div>
+			<div class="col-md-5 col-sm-5 col-xs-12">
+				<div id="gornjiDiv1">
+		    		<img src="https://source.unsplash.com/xXaLfz6V9rQ/600x500" class="imgGornjiDiv">
+		    		<div class="content1">
+			    		<p>Average price: $8 - $30</p>
+			    		<a class="aGornjiDiv1">Restaurant</a>
+			    		<h4>Marky's Restaurant</h4>
+			    		<p>633 Birch Street</p>
+		    		</div>
+		    	</div>
+		    	<div id="donjiDiv1">
+		    		<div class="row">
+		    			<div class="col-md-6 col-sm-6 col-xs-6" id="colTriSpanovi">
+				    		<span class="fa fa-star spanOsmiDiv21"></span>
+							<span class="fa fa-star spanOsmiDiv21"></span>
+							<span class="fa fa-star spanOsmiDiv21"></span>
+							<span class="fa fa-star spanOsmiDiv21"></span>
+							<span class="fa fa-star spanOsmiDiv12"></span>
+							<span class="span6"> (6)</span>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-6 divUl">
+							<ul id="ulDonjiDiv1">
+								<li class="liDonjiDiv1"></li>
+								<li class="liDonjiDiv1"></li>
+								<li class="liDonjiDiv1"></li>
+							</ul>
+						</div>
+					</div>
+		    	</div>
+			</div>
+		</div>
+		<div class="row divBtn">
+			<button id="btnDrugiDiv">VIEW ALL LISTINGS<span id="prst"> &#9758;</span></button>
+		</div>
+		<hr>
+	</div>
+
+	<div class="container" id="treciDiv">
+		<div class="row divH">
+			<h2>Browse Our Listings</h2>
+		</div>
+		<div class="row rowTabela">
+			<div class="col-md-3 col-sm-6 col-xs-12 colTabela">
+				<div class="divSpanTreciDiv"><span class="fa fa-paint-brush"></span></div>
+				<div class="row divContentTreciDiv">
+					<h4><a href="#" class="aTreciDiv">Arts &#38; Humanities</a></h4>
+					<table>
+						<tr>
+							<td>Photography</td>
+							<td id="tdRazmak"></td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>Photography</td>
+							<td id="tdRazmak"></td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>Photography</td>
+							<td id="tdRazmak"></td>
+							<td>3</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6 col-xs-12 colTabela">
+				<div class="divSpanTreciDiv"><span class="fa fa-suitcase"></span></div>
+				<div class="row divContentTreciDiv">
+					<h4><a href="#" class="aTreciDiv">Business &#38; Economy</a></h4>
+					<table>
+						<tr>
+							<td>Photography</td>
+							<td id="tdRazmak"></td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>Photography</td>
+							<td id="tdRazmak"></td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>Photography</td>
+							<td id="tdRazmak"></td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>Photography</td>
+							<td id="tdRazmak"></td>
+							<td>3</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6 col-xs-12 colTabela">
+				<div class="divSpanTreciDiv"><span class="fa fa-television"></span></div>
+				<div class="row divContentTreciDiv">
+					<h4><a href="#" class="aTreciDiv">Computer &#38; Internet</a></h4>
+					<table>
+						<tr>
+							<td>Photography</td>
+							<td id="tdRazmak"></td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>Photography</td>
+							<td id="tdRazmak"></td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>Photography</td>
+							<td id="tdRazmak"></td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>Photography</td>
+							<td id="tdRazmak"></td>
+							<td>3</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6 col-xs-12 colTabela">
+				<div class="divSpanTreciDiv"><span class="fa fa-folder-open"></span></div>
+				<div class="row divContentTreciDiv">
+					<h4><a href="#" class="aTreciDiv">Education</a></h4>
+					<table>
+						<tr>
+							<td>Photography</td>
+							<td id="tdRazmak"></td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>Photography</td>
+							<td id="tdRazmak"></td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>Photography</td>
+							<td id="tdRazmak"></td>
+							<td>3</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="row rowTabela">
+			<div class="col-md-3 col-sm-6 col-xs-12 colTabela">
+				<div class="divSpanTreciDiv"><span class="fa fa-television"></span></div>
+				<div class="row divContentTreciDiv">
+					<h4><a href="#" class="aTreciDiv">Entertainment</a></h4>
+					<table>
+						<tr>
+							<td>Photography</td>
+							<td id="tdRazmak"></td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>Photography</td>
+							<td id="tdRazmak"></td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>Photography</td>
+							<td id="tdRazmak"></td>
+							<td>3</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6 col-xs-12 colTabela">
+				<div class="divSpanTreciDiv"><span class="fa fa-suitcase"></span></div>
+				<div class="row divContentTreciDiv">
+					<h4><a href="#" class="aTreciDiv">Government</a></h4>
+					<table>
+						<tr>
+							<td>Photography</td>
+							<td id="tdRazmak"></td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>Photography</td>
+							<td id="tdRazmak"></td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>Photography</td>
+							<td id="tdRazmak"></td>
+							<td>3</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6 col-xs-12 colTabela">
+				<div class="divSpanTreciDiv"><span class="fa fa-suitcase"></span></div>
+				<div class="row divContentTreciDiv">
+					<h4><a href="#" class="aTreciDiv">Health</a></h4>
+					<table>
+						<tr>
+							<td>Photography</td>
+							<td id="tdRazmak"></td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>Photography</td>
+							<td id="tdRazmak"></td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>Photography</td>
+							<td id="tdRazmak"></td>
+							<td>3</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6 col-xs-12">
+				<div class="divSpanTreciDiv"><span class="fa fa-paint-brush"></span></div>
+				<div class="row divContentTreciDiv">
+					<h4><a href="#" class="aTreciDiv">News &#38; Media</a></h4>
+					<table>
+						<tr>
+							<td>Photography</td>
+							<td id="tdRazmak"></td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>Photography</td>
+							<td id="tdRazmak"></td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>Photography</td>
+							<td id="tdRazmak"></td>
+							<td>3</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid" id="cetvrtiDiv">
+		<div class="row">
+			<div class="col-md-6 col-sm-6 col-xs-12">
+				<br>
+				<p id="pCetvrtidDiv">Subscribe and be notified about new locations</p>
+			</div>
+			<div class="col-md-6 col-sm-6 col-xs-12">
+				<div class="input-group input-group-lg">
+					<input type="text" id="inputCetvrtiDiv" class="form-control" placeholder="Your Email...">
+					<span class="input-group-addon" id="spanCetvrtiDiv"><span id="prst"> &#9758;</span></span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid" id="petiDiv">
+		<div class="row">
+			<div class="col-md-6 col-sm-6 col-xs-12">
+				<h2>Promoted Locations</h2>
+			</div>
+			<div class="col-md-6 col-sm-6 col-xs-12" id="divBtnPromote">
+				<button id="btnPromote">Promote Yours</button>
+			</div>
+		</div>
+		<div class="owl-carousel owl-theme">
+		    <div class="item">
+		    	<div id="gornjiDiv">
+		    		<img src="https://source.unsplash.com/fGYeKt1E6hc/600x400" class="imgGornjiDiv">
+		    		<div class="content">
+			    		<p>Average price: $8 - $30</p>
+			    		<a class="aGornjiDiv">Restaurant</a>
+			    		<h4>Marky's Restaurant</h4>
+			    		<p>633 Birch Street</p>
+		    		</div>
+		    	</div>
+		    	<div id="donjiDiv">
+		    		<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv1"></span>
+					<span class="span6"> (6)</span>
+					<ul id="ulDonjiDivOC">
+						<li class="liDonjiDiv"></li>
+						<li class="liDonjiDiv"></li>
+						<li class="liDonjiDiv"></li>
+					</ul>
+		    	</div>
+		    </div>
+		    <div class="item">
+		    	<div id="gornjiDiv">
+		    		<img src="https://source.unsplash.com/WIJPPnoVrDs/600x400" class="imgGornjiDiv">
+		    		<div class="content">
+			    		<p>Average price: $8 - $30</p>
+			    		<a class="aGornjiDiv">Restaurant</a>
+			    		<h4>Marky's Restaurant</h4>
+			    		<p>633 Birch Street</p>
+		    		</div>
+		    	</div>
+		    	<div id="donjiDiv">
+		    		<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv1"></span>
+					<span class="span6"> (6)</span>
+					<ul id="ulDonjiDivOC">
+						<li class="liDonjiDiv"></li>
+						<li class="liDonjiDiv"></li>
+						<li class="liDonjiDiv"></li>
+					</ul>
+		    	</div>
+		    </div>
+		    <div class="item">
+		    	<div id="gornjiDiv">
+		    		<img src="https://source.unsplash.com/ODua_Pc7VQY/600x400" class="imgGornjiDiv">
+		    		<div class="content">
+			    		<p>Average price: $8 - $30</p>
+			    		<a class="aGornjiDiv">Restaurant</a>
+			    		<h4>Marky's Restaurant</h4>
+			    		<p>633 Birch Street</p>
+		    		</div>
+		    	</div>
+		    	<div id="donjiDiv">
+		    		<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv1"></span>
+					<span class="span6"> (6)</span>
+					<ul id="ulDonjiDivOC">
+						<li class="liDonjiDiv"></li>
+						<li class="liDonjiDiv"></li>
+						<li class="liDonjiDiv"></li>
+					</ul>
+		    	</div>
+		    </div>
+		    <div class="item">
+		    	<div id="gornjiDiv">
+		    		<img src="https://source.unsplash.com/Y5uyOoct2pg/600x400" class="imgGornjiDiv">
+		    		<div class="content">
+			    		<p>Average price: $8 - $30</p>
+			    		<a class="aGornjiDiv">Restaurant</a>
+			    		<h4>Marky's Restaurant</h4>
+			    		<p>633 Birch Street</p>
+		    		</div>
+		    	</div>
+		    	<div id="donjiDiv">
+		    		<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv1"></span>
+					<span class="span6"> (6)</span>
+					<ul id="ulDonjiDivOC">
+						<li class="liDonjiDiv"></li>
+						<li class="liDonjiDiv"></li>
+						<li class="liDonjiDiv"></li>
+					</ul>
+		    	</div>
+		    </div>
+		    <div class="item">
+		    	<div id="gornjiDiv">
+		    		<img src="https://source.unsplash.com/6gcc9Z4pgWY/600x400" class="imgGornjiDiv">
+		    		<div class="content">
+			    		<p>Average price: $8 - $30</p>
+			    		<a class="aGornjiDiv">Restaurant</a>
+			    		<h4>Marky's Restaurant</h4>
+			    		<p>633 Birch Street</p>
+		    		</div>
+		    	</div>
+		    	<div id="donjiDiv">
+		    		<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv1"></span>
+					<span class="span6"> (6)</span>
+					<ul id="ulDonjiDivOC">
+						<li class="liDonjiDiv"></li>
+						<li class="liDonjiDiv"></li>
+						<li class="liDonjiDiv"></li>
+					</ul>
+		    	</div>
+		    </div>
+		    <div class="item">
+		    	<div id="gornjiDiv">
+		    		<img src="https://source.unsplash.com/Y5uyOoct2pg/600x400" class="imgGornjiDiv">
+		    		<div class="content">
+			    		<p>Average price: $8 - $30</p>
+			    		<a class="aGornjiDiv">Restaurant</a>
+			    		<h4>Marky's Restaurant</h4>
+			    		<p>633 Birch Street</p>
+		    		</div>
+		    	</div>
+		    	<div id="donjiDiv">
+		    		<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv1"></span>
+					<span class="span6"> (6)</span>
+					<ul id="ulDonjiDivOC">
+						<li class="liDonjiDiv"></li>
+						<li class="liDonjiDiv"></li>
+						<li class="liDonjiDiv"></li>
+					</ul>
+		    	</div>
+		    </div>
+		    <div class="item">
+		    	<div id="gornjiDiv">
+		    		<img src="https://source.unsplash.com/fGYeKt1E6hc/600x400" class="imgGornjiDiv">
+		    		<div class="content">
+			    		<p>Average price: $8 - $30</p>
+			    		<a class="aGornjiDiv">Restaurant</a>
+			    		<h4>Marky's Restaurant</h4>
+			    		<p>633 Birch Street</p>
+		    		</div>
+		    	</div>
+		    	<div id="donjiDiv">
+		    		<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv1"></span>
+					<span class="span6"> (6)</span>
+					<ul id="ulDonjiDivOC">
+						<li class="liDonjiDiv"></li>
+						<li class="liDonjiDiv"></li>
+						<li class="liDonjiDiv"></li>
+					</ul>
+		    	</div>
+		    </div>
+		    <div class="item">
+		    	<div id="gornjiDiv">
+		    		<img src="https://source.unsplash.com/ODua_Pc7VQY/600x400" class="imgGornjiDiv">
+		    		<div class="content">
+			    		<p>Average price: $8 - $30</p>
+			    		<a class="aGornjiDiv">Restaurant</a>
+			    		<h4>Marky's Restaurant</h4>
+			    		<p>633 Birch Street</p>
+		    		</div>
+		    	</div>
+		    	<div id="donjiDiv">
+		    		<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv1"></span>
+					<span class="span6"> (6)</span>
+					<ul id="ulDonjiDivOC">
+						<li class="liDonjiDiv"></li>
+						<li class="liDonjiDiv"></li>
+						<li class="liDonjiDiv"></li>
+					</ul>
+		    	</div>
+		    </div>
+		    <div class="item">
+		    	<div id="gornjiDiv">
+		    		<img src="https://source.unsplash.com/fGYeKt1E6hc/600x400" class="imgGornjiDiv">
+		    		<div class="content">
+			    		<p>Average price: $8 - $30</p>
+			    		<a class="aGornjiDiv">Restaurant</a>
+			    		<h4>Marky's Restaurant</h4>
+			    		<p>633 Birch Street</p>
+		    		</div>
+		    	</div>
+		    	<div id="donjiDiv">
+		    		<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv1"></span>
+					<span class="span6"> (6)</span>
+					<ul id="ulDonjiDivOC">
+						<li class="liDonjiDiv"></li>
+						<li class="liDonjiDiv"></li>
+						<li class="liDonjiDiv"></li>
+					</ul>
+		    	</div>
+		    </div>
+		    <div class="item">
+		    	<div id="gornjiDiv">
+		    		<img src="https://source.unsplash.com/ODua_Pc7VQY/600x400" class="imgGornjiDiv">
+		    		<div class="content">
+			    		<p>Average price: $8 - $30</p>
+			    		<a class="aGornjiDiv">Restaurant</a>
+			    		<h4>Marky's Restaurant</h4>
+			    		<p>633 Birch Street</p>
+		    		</div>
+		    	</div>
+		    	<div id="donjiDiv">
+		    		<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv1"></span>
+					<span class="span6"> (6)</span>
+					<ul id="ulDonjiDivOC">
+						<li class="liDonjiDiv"></li>
+						<li class="liDonjiDiv"></li>
+						<li class="liDonjiDiv"></li>
+					</ul>
+		    	</div>
+		    </div>
+		    <div class="item">
+		    	<div id="gornjiDiv">
+		    		<img src="https://source.unsplash.com/ODua_Pc7VQY/600x400" class="imgGornjiDiv">
+		    		<div class="content">
+			    		<p>Average price: $8 - $30</p>
+			    		<a class="aGornjiDiv">Restaurant</a>
+			    		<h4>Marky's Restaurant</h4>
+			    		<p>633 Birch Street</p>
+		    		</div>
+		    	</div>
+		    	<div id="donjiDiv">
+		    		<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv1"></span>
+					<span class="span6"> (6)</span>
+					<ul id="ulDonjiDivOC">
+						<li class="liDonjiDiv"></li>
+						<li class="liDonjiDiv"></li>
+						<li class="liDonjiDiv"></li>
+					</ul>
+		    	</div>
+		    </div>
+		    <div class="item">
+		    	<div id="gornjiDiv">
+		    		<img src="https://source.unsplash.com/fGYeKt1E6hc/600x400" class="imgGornjiDiv">
+		    		<div class="content">
+			    		<p>Average price: $8 - $30</p>
+			    		<a class="aGornjiDiv">Restaurant</a>
+			    		<h4>Marky's Restaurant</h4>
+			    		<p>633 Birch Street</p>
+		    		</div>
+		    	</div>
+		    	<div id="donjiDiv">
+		    		<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv2"></span>
+					<span class="fa fa-star spanOsmiDiv1"></span>
+					<span class="span6"> (6)</span>
+					<ul id="ulDonjiDivOC">
+						<li class="liDonjiDiv"></li>
+						<li class="liDonjiDiv"></li>
+						<li class="liDonjiDiv"></li>
+					</ul>
+		    	</div>
+		    </div>
+		</div>
+	</div>
+
+	<div class="container-fluid" id="sestiDiv">
+		<h2>Events Near You</h2>
+		<div class="row">
+			<div class="col-md-4 col-sm-6 col-xs-12 colEvents">
+				<time datetime="2013-12-25" class="icon">
+				  <strong>DEC</strong>
+				  <span>25</span>
+				</time>
+				<div id="divPoredKalendara">
+					<a href="#" class="aSestiDiv1">Lorem ipsum dolo sit amet</a>
+					<span></span>
+					<p>08:00</p>
+					<p>Ut nec vulputate enim. Nulla faucibus convallis dui. Donec arcu enim, scelerisque.</p>
+					<a href="#" class="aSestiDiv2">More <span id="prst"> &#9758;</span></a>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-12 colEvents">
+				<time datetime="2013-12-25" class="icon">
+				  <strong>DEC</strong>
+				  <span>25</span>
+				</time>
+				<div id="divPoredKalendara">
+					<a href="#" class="aSestiDiv1">Lorem ipsum dolo sit amet</a>
+					<span></span>
+					<p>08:00</p>
+					<p>Ut nec vulputate enim. Nulla faucibus convallis dui. Donec arcu enim, scelerisque.</p>
+					<a href="#" class="aSestiDiv2">More <span id="prst"> &#9758;</span></a>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<time datetime="2013-12-25" class="icon">
+				  <strong>DEC</strong>
+				  <span>25</span>
+				</time>
+				<div id="divPoredKalendara">
+					<a href="#" class="aSestiDiv1">Lorem ipsum dolo sit amet</a>
+					<span></span>
+					<p>08:00</p>
+					<p>Ut nec vulputate enim. Nulla faucibus convallis dui. Donec arcu enim, scelerisque.</p>
+					<a href="#" class="aSestiDiv2">More <span id="prst"> &#9758;</span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container" id="sedmiDiv">
+		<div class="row">
+			<div class="col-md-5 col-sm-6 col-xs-12 divH2SedmiDiv">
+				<h2>Recently Rated Items</h2>
+			</div>
+			<div class="col-md-2 col-sm-6 col-xs-12"></div>
+			<div class="col-md-2 col-sm-6 col-xs-12"></div>
+			<div class="col-md-3 col-sm-6 col-xs-12" id="colH2CW">
+				<h2 id="h2CW">Client’s Word</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 col-sm-3 col-xs-12 colRRI">
+				<div id="gornjiDiv1">
+		    		<img src="https://source.unsplash.com/xXaLfz6V9rQ/600x500" class="imgGornjiDiv">
+		    		<div class="content1RRI">
+			    		<p>Average price: $8 - $30</p>
+			    		<a class="aGornjiDiv1">Restaurant</a>
+			    		<h4>Marky's Restaurant</h4>
+			    		<p>633 Birch Street</p>
+		    		</div>
+		    	</div>
+		    	<div id="donjiDiv1">
+		    		<div class="row">
+		    			<div class="col-md-6 col-sm-6 col-xs-6 divStarsRRI">
+				    		<span class="fa fa-star spanOsmiDiv212"></span>
+							<span class="fa fa-star spanOsmiDiv212"></span>
+							<span class="fa fa-star spanOsmiDiv212"></span>
+							<span class="fa fa-star spanOsmiDiv212"></span>
+							<span class="fa fa-star spanOsmiDiv122"></span>
+							<span class="span62"> (6)</span>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-6 divUl">
+							<ul id="ulDonjiDiv1">
+								<li class="liDonjiDiv1"></li>
+								<li class="liDonjiDiv1"></li>
+								<li class="liDonjiDiv1"></li>
+							</ul>
+						</div>
+					</div>
+		    	</div>
+			</div>
+			<div class="col-md-4 col-sm-4 col-xs-12 colRRI">
+				<div id="gornjiDiv1">
+		    		<img src="https://source.unsplash.com/xXaLfz6V9rQ/600x500" class="imgGornjiDiv">
+		    		<div class="content1RRI">
+			    		<p>Average price: $8 - $30</p>
+			    		<a class="aGornjiDiv1">Restaurant</a>
+			    		<h4>Marky's Restaurant</h4>
+			    		<p>633 Birch Street</p>
+		    		</div>
+		    	</div>
+		    	<div id="donjiDiv1">
+		    		<div class="row">
+		    			<div class="col-md-6 col-sm-6 col-xs-6 divStarsRRI">
+				    		<span class="fa fa-star spanOsmiDiv212"></span>
+							<span class="fa fa-star spanOsmiDiv212"></span>
+							<span class="fa fa-star spanOsmiDiv212"></span>
+							<span class="fa fa-star spanOsmiDiv212"></span>
+							<span class="fa fa-star spanOsmiDiv122"></span>
+							<span class="span62"> (6)</span>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-6 divUl">
+							<ul id="ulDonjiDiv1">
+								<li class="liDonjiDiv1"></li>
+								<li class="liDonjiDiv1"></li>
+								<li class="liDonjiDiv1"></li>
+							</ul>
+						</div>
+					</div>
+		    	</div>
+			</div>
+			<div class="col-md-2 col-sm-2 col-xs-12 colRRI">
+				<div id="gornjiDiv1">
+		    		<img src="https://source.unsplash.com/xXaLfz6V9rQ/600x500" class="imgGornjiDiv">
+		    		<div class="content1RRI">
+			    		<p>Price: $8 - $30</p>
+			    		<a class="aGornjiDiv1">Restaurant</a>
+			    		<h4>Restaurant</h4>
+			    		<p>633 Birch Street</p>
+		    		</div>
+		    	</div>
+		    	<div id="donjiDiv1">
+		    		<div class="row">
+		    			<div class="col-md-6 col-sm-6 col-xs-6 divStarsRRI">
+				    		<span class="fa fa-star spanOsmiDiv212"></span>
+							<span class="fa fa-star spanOsmiDiv212"></span>
+							<span class="fa fa-star spanOsmiDiv212"></span>
+							<span class="fa fa-star spanOsmiDiv212"></span>
+							<span class="fa fa-star spanOsmiDiv122"></span>
+							<span class="span62"> (6)</span>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-6 divUl">
+							<ul id="ulDonjiDiv1">
+								<li class="liDonjiDiv1"></li>
+								<li class="liDonjiDiv1"></li>
+								<li class="liDonjiDiv1"></li>
+							</ul>
+						</div>
+					</div>
+		    	</div>
+			</div>
+			<div class="row colH2CW2"><h2>Client's Word</h2></div>
+			<div class="col-md-3 col-sm-3 col-xs-12" id="divClientsWord">
+				<div id="myCarousel" class="carousel slide" data-ride="carousel">
+				<div class="carousel-inner">
+					<div class="item active itemRel">
+						<div id="divUmetnut">
+							<img class="clientImg" src="http://themestarz.net/html/locations/assets/img/person-04.jpg" alt="slika1">
+						</div>
+						<div id="divUmetnut2"></div>
+						<h4>Ime Prezime</h4>
+						<p>I'm CEO bitch</p>
+						<p id="pSadrzajClientsWord">Ut nec vulputate enim. Nulla faucibus convallis dui. Donec arcu enim, scelerisque.</p>
+					</div>
+					<div class="colOsmiDiv item itemRel">
+						<div id="divUmetnut">
+							<img class="clientImg" src="http://themestarz.net/html/locations/assets/img/person-01.jpg" alt="slika1">
+						</div>
+						<div id="divUmetnut2"></div>
+						<h4>Ime Prezime</h4>
+						<p>I'm CEO bitch</p>
+						<p id="pSadrzajClientsWord">Ut nec vulputate enim. Nulla faucibus convallis dui. Donec arcu enim, scelerisque.</p>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+		<div class="row divFromTheBlog">
+			<h2>From the Blog</h2>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-sm-6 col-xs-12 colFromTheBlog">
+				<a href="#" class="aSestiDiv1">Lorem ipsum dolo sit amet</a>
+				<p>08:00</p>
+				<p>Ut nec vulputate enim. Nulla faucibus convallis dui. Donec arcu enim, scelerisque.</p>
+				<a href="#" class="aSestiDiv2"><span id="prst"> &#9758;</span></a>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-12 colFromTheBlog">
+				<a href="#" class="aSestiDiv1">Lorem ipsum dolo sit amet</a>
+				<p>08:00</p>
+				<p>Ut nec vulputate enim. Nulla faucibus convallis dui. Donec arcu enim, scelerisque.</p>
+				<a href="#" class="aSestiDiv2"><span id="prst"> &#9758;</span></a>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-12 colFromTheBlog3">
+				<a href="#" class="aSestiDiv1">Lorem ipsum dolo sit amet</a>
+				<p>08:00</p>
+				<p>Ut nec vulputate enim. Nulla faucibus convallis dui. Donec arcu enim, scelerisque.</p>
+				<a href="#" class="aSestiDiv2"><span id="prst"> &#9758;</span></a>
+			</div>
+		</div>
+		<hr id="hrSedmiDiv">
+		<div class="row">
+			<div class="col-md-3 col-sm-3 col-xs-6 logoHover">
+				<img src="http://mnml.seoanatomy.com/wp-content/uploads/2016/12/giftdish.png" class="imgLogo" id="imgLogo1">
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-6 logoHover">
+				<img src="http://mnml.seoanatomy.com/wp-content/uploads/2016/12/break-point.png" class="imgLogo">
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-6 logoHover">
+				<img src="http://mnml.seoanatomy.com/wp-content/uploads/2016/12/spacebound.png" class="imgLogo">
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-6 logoHover">
+				<img src="http://mnml.seoanatomy.com/wp-content/uploads/2016/12/biolayne.png" class="imgLogo" id="imgLogo4">
+			</div>
+		</div>
+	</div>
+
+	<hr>
+
+	<div id="osmiDiv" class="container-fluid">
+	    <div class="col-md-6 col-sm-6 col-xs-12 colOsmiDiv1">
+	    	<p id="pFootera">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquam at neque sit amet vestibulum. <a href="#" class="aTerms">Terms of Use</a> and <a href="#" class="aTerms">Privacy Policy</a>.</p>
+		</div>
+		<div class="col-md-6 col-sm-6 col-xs-12 colOsmiDiv2">
+			<span class="fa fa-twitter spanOsmiDiv"></span>
+			<span class="fa fa-facebook spanOsmiDiv spanOsmiDiv2"></span>
+			<span class="fa fa-linkedin spanOsmiDiv"></span>
+		</div>
+	</div>
+
+	<div id="footer" class="container-fluid">
+	    <nav class="navbar navbar-default navbar-bottom foot">
+	    	<div class="row">
+		    	<div class="col-md-6 col-sm-6 col-xs-12" id="pFootera1">
+		    		<p><span class="fa fa-copyright"></span>2017 by Stefanb87. All rights reserved.</p>
+		    	</div>
+		    	<div class="col-md-6 col-sm-6 col-xs-12" id="pFootera2">
+		    		<p>Home  Listings  Submit Item  Contact</p>
+		    	</div>
+	    	</div>
+		</nav>
+	</div>
+
+<script type="text/javascript" src="JSLocations.js"></script>
+<script src="owl.carousel.min.js"></script>
+<script type="text/javascript" src="jquery-ui.min.js"></script>
+</body>
+</html>
